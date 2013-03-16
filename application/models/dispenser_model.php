@@ -70,7 +70,7 @@ class Dispenser_Model extends CI_Model
 								if ($pre_active->premotor = '1') 
 									{
 										//command we want to send to the dispenser
-										$ssh->exec('sudo halt');
+										$ssh->exec('sudo python pimotor1.py');
 										echo '<br>';
 										echo 'motor 1 success';
 										echo '<br>';
@@ -78,12 +78,12 @@ class Dispenser_Model extends CI_Model
 								elseif ($pre_active->premotor = '2')
 									{
 										//command we want to send to the dispenser
-										$ssh->exec('killall -v apt-get');
+										$ssh->exec('sudo python pimotor2.py');
 									}
 								elseif ($pre_active->premotor = '3')
 									{
 										//command we want to send to the dispenser
-										$ssh->exec('killall -v apt-get');
+										$ssh->exec('sudo python pimotor3.py');
 									}
 									echo 'completed';
 							}
