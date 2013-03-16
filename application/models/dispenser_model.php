@@ -28,7 +28,7 @@ class Dispenser_Model extends CI_Model
 			{
 				//lets create the table that we need  for doing the run through of prescriptions
 				$this->db->select('*');
-				$this->db->where('prestatus', '0');
+				$this->db->where('PREstatus', '0');
 				$this->db->from('TBprescription');
 				$this->db->join('TBdispenser', 'TBprescription.PREdispenserid = TBdispenser.DISid', 'INNER');
 				$pre_actives = $this->db->get();
