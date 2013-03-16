@@ -36,7 +36,7 @@ class Dispenser_Model extends CI_Model
 				//print_r ($pre_actives->result_array());
 				
 				//lets get the current data stamp
-				$time_hour = date('h');
+				$time_hour = date('H');
 				$time_minute = date('i');
 				$time_round = $time_minute;
 				$time_final = "$time_hour:$time_minute";

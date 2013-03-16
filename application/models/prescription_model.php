@@ -32,7 +32,7 @@ class Prescription_Model extends CI_Model
 		function pre_timestamp($pre_duration)
 		{
 			//lets get the current time
-			$time_hour = date('h');
+			$time_hour = date('H');
 			$time_minute = date('i');
 			$time_minutes = $time_minute+$pre_duration;
 			$time_round = $time_minutes;
