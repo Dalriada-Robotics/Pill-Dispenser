@@ -1,0 +1,174 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* overall wrapper config */
+#beta
+	{
+		width:100%;
+		height: 20px;
+		background-color: #f90;
+		text-align: center;
+		color: #FFF;
+	}
+#wrapper 
+	{
+		margin: 0px auto; 
+		width: 90%;
+		height: 100%;
+		overflow: auto;
+	}
+/* body config */
+	body 
+	{
+		background: url("../img/bg.jpg") rgb(255, 255, 255); 
+		margin: 0px; 
+		padding: 0px; 
+		color: rgb(117, 117, 117); 
+		line-height: 1.5em; 
+		font-family: Arial,sans-serif; 
+		font-size: 0.9em;
+		height: 100%;
+
+	}
+/* configure the p tag for the whole page */
+	p 
+	{
+		margin-top: 1px;
+		margin-bottom: 1px;
+	}
+/* quicklinks wrapper */
+	#wrapper_quicklinks 
+	{
+		height: 40px; 
+		border-bottom-color: rgb(216, 216, 216); 
+		border-bottom-width: 1px; 
+		border-bottom-style: solid; 
+		-moz-box-shadow: 0px 1px 0px #fff;
+		text-align: right;
+		margin-top: 15px;
+	}
+/* define a href in quicklinks */
+	#wrapper_quicklinks a 
+	{
+		color: rgb(187, 0, 0);
+		font-weight: bold;
+		text-shadow: 1px 1px 1px #fff;
+		text-decoration: none;		
+	}
+/* navigation wrapper */
+	#wrapper_nav 
+	{
+		height: 100px; border-bottom-color: rgb(216, 216, 216); border-bottom-width: 1px; border-bottom-style: solid; -moz-box-shadow: 0px 1px 0px #fff;
+	}
+/* body wrapper */
+	#wrapper_body 
+	{
+		height: auto; 
+	}
+
+/* footer wrapper */	
+	#wrapper_footer 
+	{
+		height: 100px; border-bottom-color: rgb(216, 216, 216); border-bottom-width: 1px; border-bottom-style: solid; -moz-box-shadow: 0px 1px 0px #fff;
+	}
+/* display the logo on nav section */
+	#wrapper_nav a.logo {
+		background: url("../img/logo.png") no-repeat 0px 0px; 
+		margin: 22px 0px 0px 10px; 
+		width: 196px; 
+		height: 56px; 
+		float: left; 
+		display: block;
+	}
+/* deals with how the nav links are displayed */
+	#wrapper_nav ul {
+		margin: 30px 0px; padding: 0px; overflow: auto; float: right; list-style-type: none;
+	}
+	#wrapper_nav ul li {
+		padding: 10px 8px; float: left;
+	}
+	#wrapper_nav ul li a {
+		color: rgb(117, 117, 117); 
+		text-transform: uppercase; 
+		font-weight: bold; 
+		display: block; 
+		text-shadow: 1px 1px 1px #fff;
+		text-decoration: none;
+	}
+	#wrapper_nav ul li a.active {
+		color: rgb(187, 0, 0);
+	}
+	#wrapper_nav ul li a:hover {
+		color: rgb(187, 0, 0);
+	}
+/* apply the same rollover to the job details */
+	#wrapper_body a {
+		text-decoration:none;
+		color: rgb(117, 117, 117);
+	}
+	#wrapper_body a.active {
+		color: rgb(187, 0, 0);
+	}
+	#wrapper_body a:hover {
+		color: rgb(187, 0, 0);
+
+	}
+/* create body columns */
+	#body_span
+	{
+		min-height: 250px;
+		width: 100%;
+		border-bottom-color: rgb(216, 216, 216); 
+		border-bottom-width: 1px; 
+		border-bottom-style: solid; 
+		-moz-box-shadow: 0px 1px 0px #fff;
+		overflow: auto;
+	}
+	#body_quote
+	{	
+		float: left; 
+		width: 50%;
+		min-height: 250px;
+		border-right-color: rgb(216, 216, 216); 
+		border-right-width: 1px; 
+		border-right-style: solid; 
+		-moz-box-shadow: 0px 1px 0px #fff;
+	}
+	#body_quoted
+	{
+		float: right;
+		min-width: 49%;
+		height: 100%;
+	}
+	#body_follow
+	{
+		float:left;
+		width: 50%;
+		min-height: 250px;
+		border-right-color: rgb(216, 216, 216); 
+		border-right-width: 1px; 
+		border-right-style: solid; 
+		-moz-box-shadow: 0px 1px 0px #fff;
+	}
+	#body_progress
+	{
+		float: right;
+		width: 49%;
+		height: 100%;
+	}
+	#body_completed
+	{
+		float:left;
+		width: 50%;
+		min-height: 250px;
+		border-right-color: rgb(216, 216, 216); 
+		border-right-width: 1px; 
+		border-right-style: solid; 
+		-moz-box-shadow: 0px 1px 0px #fff;
+	}
+	#body_review
+	{
+		float: right;
+		width: 49%;
+		height: 100%;
+	}

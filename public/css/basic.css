@@ -1,0 +1,39 @@
+/*
+ * SimpleModal Basic Modal Dialog
+ * http://www.ericmmartin.com/projects/simplemodal/
+ * http://code.google.com/p/simplemodal/
+ *
+ * Copyright (c) 2010 Eric Martin - http://ericmmartin.com
+ *
+ * Licensed under the MIT license:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *
+ * Revision: $Id: basic.css 257 2010-07-27 23:06:56Z emartin24 $
+ */
+
+#pat_add {display:none;}
+#pat_edit {display:none;}
+#pre_add {display:none;}
+#pre_edit {display:none;}
+#pill_add {display:none;}
+#disp_add {display:none;}
+#pat_add {overflow: hidden; cursor: default; }
+#pat_edit {overflow: hidden; cursor: default; }
+#pre_add {overflow: hidden; cursor: default; }
+#pill_add {overflow: hidden; cursor: default; }
+#disp_add {overflow: hidden; cursor: default; }
+
+/* Overlay */
+#simplemodal-overlay {background-color:#000; cursor:wait;}
+
+/* Container */
+#simplemodal-container {height:420px; width:400px; color:#bbb; background-color:#333; border:4px solid #444; padding:12px;}
+#simplemodal-container .simplemodal-data {padding:8px;}
+#simplemodal-container code {background:#141414; border-left:3px solid #65B43D; color:#bbb; display:block; font-size:12px; margin-bottom:12px; padding:4px 6px 6px;}
+#simplemodal-container a {color:#ddd;}
+#simplemodal-container a.modalCloseImg {background:url(../img/basic/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}
+#simplemodal-container h3 {color:#84b8d9;}
+#simplemodal-container-left { float: left; width: 50%; margin-bottom: -30000px; padding-bottom: 30000px; }
+#simplemodal-container-right { float: right; width: 49%; height: 100%; margin-bottom: -30000px; padding-bottom: 30000px; }
+#simplemodal-container ul { list-style-type:none; margin-left: -40px; }
+#simplemodal-container ul li { float: left; height: 25px; margin-right: 15px; }
