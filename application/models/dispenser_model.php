@@ -33,6 +33,8 @@ class Dispenser_Model extends CI_Model
 				$this->db->join('TBdispenser', 'TBprescription.PREdispenserid = TBdispenser.DISid', 'INNER');
 				$pre_actives = $this->db->get();
 				
+				//print_r ($pre_actives->result_array());
+				
 				//lets get the current data stamp
 				$time_hour = date('h');
 				$time_minute = date('i');
@@ -61,7 +63,7 @@ class Dispenser_Model extends CI_Model
 										//exit if you cannot get logged on
 										exit('Login Failed');
 									}
-								
+
 								//lets work out which motor we are suppose to be connecting to
 								if ($pre_active->premotor = '1') 
 									{
