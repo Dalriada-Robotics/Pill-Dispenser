@@ -43,6 +43,8 @@ class Dispenser_Model extends CI_Model
 				$date = date('Y-m-d');
 				$datetime = "$date $time_final";
 				
+				print_r($datetime);
+
 				//lets get to work on the running through the results from the table created
 				foreach ($pre_actives->result() as $pre_active)
 					{
