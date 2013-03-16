@@ -51,7 +51,7 @@ class Dispenser_Model extends CI_Model
 						if($datetime == $pre_active->PREstartdate)
 							{
 								//lets load the ssh3 helper
-								$this->load->helper('SSH2_helper.php');
+								$this->load->helper('SSH2.php');
 								
 								//lets get the ip of the dispenser and the authenicationd etails
 								$disp_ip = $pre_active->DISip;
@@ -70,7 +70,10 @@ class Dispenser_Model extends CI_Model
 								if ($pre_active->premotor = '1') 
 									{
 										//command we want to send to the dispenser
-										$ssh->exec('sudo python pimotor1.py');
+										$ssh->exec('sudo halt');
+										echo '<br>';
+										echo 'motor 1 success';
+										echo '<br>';
 									}
 								elseif ($pre_active->premotor = '2')
 									{
@@ -82,10 +85,12 @@ class Dispenser_Model extends CI_Model
 										//command we want to send to the dispenser
 										$ssh->exec('killall -v apt-get');
 									}
+									echo 'completed';
 							}
 						else
 							{
 								//do nothing and move onto the next record
+								echo 'failure';
 							}
 					}
 			}
