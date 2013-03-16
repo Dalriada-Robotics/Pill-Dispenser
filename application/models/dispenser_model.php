@@ -30,7 +30,7 @@ class Dispenser_Model extends CI_Model
 				$this->db->select('*');
 				$this->db->where('prestatus', '0');
 				$this->db->from('TBprescription');
-				$this->db->join('TBdispenser', 'TBprescription.predispenserid = TBdispenser.DISid', 'INNER');
+				$this->db->join('TBdispenser', 'TBprescription.PREdispenserid = TBdispenser.DISid', 'INNER');
 				$pre_actives = $this->db->get();
 				
 				//lets get the current data stamp
@@ -44,7 +44,7 @@ class Dispenser_Model extends CI_Model
 				//lets get to work on the running through the results from the table created
 				foreach ($pre_actives->result() as $pre_active)
 					{
-						if($datetime == $pre_active->prestartdate)
+						if($datetime == $pre_active->PREstartdate)
 							{
 								//lets load the ssh3 helper
 								$this->load->helper('SSH2.php');
