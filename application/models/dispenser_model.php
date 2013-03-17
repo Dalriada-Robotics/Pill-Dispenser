@@ -94,4 +94,52 @@ class Dispenser_Model extends CI_Model
 							}
 					}
 			}
+		//create the function that will go and retreive the feedback information from the dispenser
+		function disp_feedback() 
+		{
+			//lets create the table that we need  for doing the run through of prescriptions
+			$this->db->select('*');
+			$this->db->where('PREstatus', '0');
+			$this->db->from('TBprescription');
+			$this->db->join('TBdispenser', 'TBprescription.PREdispenserid = TBdispenser.DISid', 'INNER');
+			$pre_actives = $this->db->get();
+
+			//lets load the ssh3 helper
+			$this->load->helper('SSH2.php');
+							
+			//lets get the ip of the dispenser and the authenicationd etails
+			$disp_ip = $pre_active->DISip;
+			$disp_username = $pre_active->DISusername;
+			$disp_password = $pre_active->DISpassword;
+								
+			//lets create the details for the SSH connection
+			$ssh = new NET_SSH2($disp_ip);
+			if (!$ssh->login($disp_username, $disp_password)) 
+			{
+				//exit if you cannot get logged on
+				exit('Login Failed');
+			}
+
+			//lets work out which motor we are suppose to be connecting to
+			if ($pre_active->premotor = '1') 
+			{
+				//command we want to send to the dispenser
+			
+				echo '<br>';
+				echo 'motor 1 success';
+				echo '<br>';
+			}
+			elseif ($pre_active->premotor = '2')
+			{
+				//command we want to send to the dispenser
+				$ssh->exec('killall -v apt-get');
+			}
+			elseif ($pre_active->premotor = '3')
+			{
+				//command we want to send to the dispenser
+				$ssh->exec('killall -v apt-get');
+			}
+			echo 'completed';			
+
+		}
 	}

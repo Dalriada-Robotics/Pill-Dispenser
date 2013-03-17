@@ -16,12 +16,20 @@ class Pill_Model extends CI_Model
 				$query = $this->db->get('TBpill');
 				return $query;	
 		}
-		//add new patient record to the db
+		//add new pillt record to the db
 		function pill_insert($pill_insert)
 		{
 			//db query
 			$data = $pill_insert;
 			$this->db->insert('TBpill', $data);
+		}
+		//function to update pill records
+		function pill_update($data)
+		{	
+			//run the db query
+			$this->db->where($data['key'], $data['id']); 
+			$this->db->update($data['table'], $data['values']);
+
 		}
 
 	}

@@ -55,5 +55,36 @@ class Pill_Controller extends CI_Controller {
 			//redirect tot the default controller showing the new patient that has been added
 			redirect('pill_controller', 'refresh');	
 		}
+	//function to control the inline edit
+	function pill_update()
+	{
+			//lets load the model relevant to this model
+			$this->load->model('pill_model');
+			
+			//lets get the name of the table that the data is held
+			$data['table'] = $_POST['table'];
+			
+			//lets ge the key of the record for the db
+			$data['key'] = $_POST['key'];
+
+			//lets get the id of the element that we are updating
+			$data['id'] = $_POST['record_id'];
+			
+			//lets get the name of the field that has been edited
+			$field = $_POST['elementid'];
+			
+			//lets get the new value
+			$data['newvalue'] = $_POST['newvalue'];
+			
+			//lets create an array out of the submitted data
+			$data['values'] = array( $field => $data['newvalue'] );	
+			
+			//required to have the new value display
+			print_r($data['newvalue']);
+			
+			//pass the data to the model for processing
+			$this->pill_model->pill_update($data);	
+	
+	}
 }
 	?>

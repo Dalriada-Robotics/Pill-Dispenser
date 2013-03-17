@@ -25,6 +25,9 @@ class Prescription_Controller extends CI_Controller {
 					//lets load the functions that we want to use from the above model
 					$page_data['pre_records'] = $this->Prescription_model->pre_records();
 					
+					//lets pass on a value if the prescriptions are empty
+					$page_data['pre_empty'] = "No active Prescriptions";
+					
 					//this will load the header template
 					$this->load->view('header_view', $header_data);
 					

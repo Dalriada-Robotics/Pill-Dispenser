@@ -63,4 +63,34 @@
 								key			: 'DISid'
 								};			}
   });
+  /* deals with the function for editing the Pill Name within Medication */
+  $(".inline_pil_edit_pill").editable("http://localhost/dispenser/pill_controller/pill_update", { 
+	 	id 			: 'elementid',
+	  	name 		: 'newvalue',
+	  	width 		: 100,
+	  	style  		: "inherit",
+	  	tooltip   	: 'Click to edit...',
+	  	submitdata 	: function (id, value) 	{
+		  				return {
+								table		: 'TBpill',
+								record_id	: $('ul.pill_root').attr('id'),
+								key			: 'PILid'
+								};			}
+  });
+   /* deals with the function for editing the Pill descriptions within Medication */
+  $(".inline_pil_edit_description").editable("http://localhost/dispenser/pill_controller/pill_update", { 
+	 	id 			: 'elementid',
+	  	name 		: 'newvalue',
+	  	type		: 'textarea',
+	  	style  		: "inherit",
+	  	tooltip   	: 'Click to edit...',
+	  	submitdata 	: function (id, value) 	{
+		  				return {
+								table		: 'TBpill',
+								record_id	: $('ul.pill_root').attr('id'),
+								key			: 'PILid'
+								};			},
+		submit		: 'Ok',
+		cssclass	: 'tetarea_inline'
+  });
 });

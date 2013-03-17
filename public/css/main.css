@@ -19,7 +19,7 @@
 #body-sub-menu-right { float: right; width: 49%; height: 100%; margin-bottom: -30000px; padding-bottom: 30000px; text-align: right;  }
 #body-left { float: left; width: 50%; border-right-color: rgb(216, 216, 216); border-right-width: 1px; border-right-style: solid; -moz-box-shadow: 0px 1px 0px #fff; margin-bottom: -30000px; padding-bottom: 30000px; }
 #body-right { float: right; width: 49%; height: 100%; margin-bottom: -30000px; padding-bottom: 30000px; }
-#body-span ul { list-style-type: none; margin-left: -40px; margin-right: 40px; overflow: hidden;}
+#body-span ul { list-style-type: none; margin-left: -40px; margin-right: 40px;}
 #body-span ul li {height: 25px; vertical-align: central;}
 #body-span a.active { color: rgb(187, 0, 0);}
 #body-span a.hover { color:rgb(187, 0, 0);}
