@@ -11,17 +11,13 @@
  * Revision: $Id: basic.css 257 2010-07-27 23:06:56Z emartin24 $
  */
 
-#pat_add {display:none;}
-#pat_edit {display:none;}
-#pre_add {display:none;}
-#pre_edit {display:none;}
-#pill_add {display:none;}
-#disp_add {display:none;}
-#pat_add {overflow: hidden; cursor: default; }
-#pat_edit {overflow: hidden; cursor: default; }
-#pre_add {overflow: hidden; cursor: default; }
-#pill_add {overflow: hidden; cursor: default; }
-#disp_add {overflow: hidden; cursor: default; }
+#pat_add {display:none;overflow: hidden; cursor: default; }
+#pat_edit {display:none;overflow: hidden; cursor: default;}
+#pre_add {display:none;overflow: hidden; cursor: default;}
+#pre_edit {display:none;overflow: hidden; cursor: default;}
+#pill_add {display:none;overflow: hidden; cursor: default;}
+#disp_add {display:none;overflow: hidden; cursor: default;}
+#dos_add {display:none;overflow: hidden; cursor: default}
 
 /* Overlay */
 #simplemodal-overlay {background-color:#000; cursor:wait;}
@@ -36,4 +32,4 @@
 #simplemodal-container-left { float: left; width: 50%; margin-bottom: -30000px; padding-bottom: 30000px; }
 #simplemodal-container-right { float: right; width: 49%; height: 100%; margin-bottom: -30000px; padding-bottom: 30000px; }
 #simplemodal-container ul { list-style-type:none; margin-left: -40px; }
-#simplemodal-container ul li { float: left; height: 25px; margin-right: 15px; }
+#simplemodal-container ul li { float: left; height: 25px; width: 100%; margin-right: 15px; }

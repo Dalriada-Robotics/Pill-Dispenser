@@ -66,7 +66,9 @@
                                             <ul class="PRE_root" id="<?php echo $pat_prescription->PREid; ?>">
                                                 <li>Pill Name: <?php echo $pat_prescription->PILname; ?> | </li>
                                                 <li>Duration: <span class="<?php echo $sub_duration; ?>" id="PREduration"><?php echo $pat_prescription->PREduration; ?></span> <?php echo $sub_duration_txt; ?> | </li>
-                                                <li>Dosage: <span class="inline_sub_edit" id="PREdosage"><?php echo $pat_prescription->PREdosage; ?></span> (Times Per Day) | </li>
+                                                <li>Dosage 1: <span class="inline_sub_edit_dosage" id="PREdosage1"><?php echo $pat_prescription->PREdosage1; ?></span> | </li>
+                                                <li>Dosage 2: <span class="inline_sub_edit_dosage" id="PREdosage2"><?php echo $pat_prescription->PREdosage2; ?></span> | </li>
+                                                <li>Dosage 3: <span class="inline_sub_edit_dosage" id="PREdosage3"><?php echo $pat_prescription->PREdosage3; ?></span> | </li>
                                                 <li>Motor: <span class="inline_sub_edit" id="PREmotor"><?php echo $pat_prescription->PREmotor; ?></span> | </li>
                                                 <li>Subscribed by: <?php echo $pat_prescription->DOCfname; ?> . <?php echo $pat_prescription->DOCsname; ?></li>
                                             </ul>
@@ -138,6 +140,7 @@
                             <input type="submit" value="Submit" />
                         </form>
              </div> 
+<!-- hidden popup for adding prescriptions records -->  
 <!-- hidden popup for adding prescriptions records --> 
             <div id="pre_add">
                     <h3>Add a Prescription to current Patient</h3>
@@ -149,7 +152,9 @@
 												<ul>
 													<li>Patient's Full Name: </li><br />
 													<li>Select Pill Name: </li><br />
-													<li>Dosage (times per day): </li><br />
+													<li>Dosage 1: </li>
+                                                    <li>Dosage 2: </li>
+                                                    <li>Dosage 3: </li>
 													<li>Duration (days): </li><br />
                                                     <li>Specific Motor <li><br />
                                                     <li>Select Dispenser: <li><br />
@@ -166,7 +171,66 @@
 																<option value="<?php echo $pill_list->PILid; ?>"><?php echo $pill_list->PILname; ?></option>
 															<?php } ?>
 														</select></li>
-													 <li><input type="text" size="15" maxlength="3" name="pre_insert[PREdosage]" value="" required="required" /></li>
+													 <li><select name="pre_insert[PREdosage1]">
+                                                     		<option value="None" selected="selected">None</option>
+                                                            <option value="07:00">7  AM</option>
+                                                            <option value="08:00">8  AM</option>
+                                                            <option value="09:00">9  AM</option>
+                                                            <option value="10:00">10 AM</option>
+                                                            <option value="11:00">11 AM</option>
+                                                            <option value="12:00">12 PM</option>
+                                                            <option value="13:00">1 PM</option>
+                                                            <option value="14:00">2 PM</option>
+                                                            <option value="15:00">3 PM</option>
+                                                            <option value="16:00">4 PM</option>
+                                                            <option value="17:00">5 PM</option>
+                                                            <option value="18:00">6 PM</option>
+                                                            <option value="19:00">7 PM</option>
+                                                            <option value="20:00">8 PM</option>
+                                                            <option value="21:00">9 PM</option>
+                                                            <option value="22:00">10 PM</option>
+                                                            <option value="23:00">11 PM</option>
+                                                         </select></li>
+                                                     <li><select name="pre_insert[PREdosage2]">
+                                                     		<option value="None" selected="selected">None</option>
+                                                            <option value="07:00">7  AM</option>
+                                                            <option value="08:00">8  AM</option>
+                                                            <option value="09:00">9  AM</option>
+                                                            <option value="10:00">10 AM</option>
+                                                            <option value="11:00">11 AM</option>
+                                                            <option value="12:00">12 PM</option>
+                                                            <option value="13:00">1 PM</option>
+                                                            <option value="14:00">2 PM</option>
+                                                            <option value="15:00">3 PM</option>
+                                                            <option value="16:00">4 PM</option>
+                                                            <option value="17:00">5 PM</option>
+                                                            <option value="18:00">6 PM</option>
+                                                            <option value="19:00">7 PM</option>
+                                                            <option value="20:00">8 PM</option>
+                                                            <option value="21:00">9 PM</option>
+                                                            <option value="22:00">10 PM</option>
+                                                            <option value="23:00">11 PM</option>
+                                                         </select></li>
+                                                     <li><select name="pre_insert[PREdosage3]">
+                                                     		<option value="None" selected="selected">None</option>
+                                                            <option value="07:00">7  AM</option>
+                                                            <option value="08:00">8  AM</option>
+                                                            <option value="09:00">9  AM</option>
+                                                            <option value="10:00">10 AM</option>
+                                                            <option value="11:00">11 AM</option>
+                                                            <option value="12:00">12 PM</option>
+                                                            <option value="13:00">1 PM</option>
+                                                            <option value="14:00">2 PM</option>
+                                                            <option value="15:00">3 PM</option>
+                                                            <option value="16:00">4 PM</option>
+                                                            <option value="17:00">5 PM</option>
+                                                            <option value="18:00">6 PM</option>
+                                                            <option value="19:00">7 PM</option>
+                                                            <option value="20:00">8 PM</option>
+                                                            <option value="21:00">9 PM</option>
+                                                            <option value="22:00">10 PM</option>
+                                                            <option value="23:00">11 PM</option>
+                                                         </select></li>
 													 <li><input type="text" size="15" maxlength="3" name="pre_insert[PREduration]" value="" required="required" /></li>
                                                      <li><select name="pre_insert[PREmotor]">
                                                      		<option value="1">1</option>

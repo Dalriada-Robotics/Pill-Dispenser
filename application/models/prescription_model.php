@@ -73,20 +73,10 @@ class Prescription_Model extends CI_Model
 		function pre_update($data)
 		{
 			
-			//we need to check if the array contains the edit for duration
-			if(array_key_exists('PREduration', $data['values']))
-				{
-					
-					$pre_duration = $data['newvalue'];
-					
-					//take the timestamp and add it to the $pre_insert array
-					$data['values']['PREstartdate'] = $this->pre_timestamp($pre_duration);
-					
-					//update the db with the details
-					$this->db->where($data['key'], $data['id']); 
-					$this->db->update($data['table'], $data['values']);
-					
-				}
+			//run the db query
+			$this->db->where($data['key'], $data['id']); 
+			$this->db->update($data['table'], $data['values']);
+
 						
 		}
 	}
