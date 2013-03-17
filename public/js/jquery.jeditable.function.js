@@ -53,7 +53,7 @@
   $(".inline_disp_edit").editable("http://localhost/dispenser/patient_controller/pat_update", { 
 	 	id 			: 'elementid',
 	  	name 		: 'newvalue',
-	  	width 		: 50,
+	  	width 		: 100,
 	  	style  		: "inherit",
 	  	tooltip   	: 'Click to edit...',
 	  	submitdata 	: function (id, value) 	{

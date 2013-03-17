@@ -12,6 +12,7 @@ class Prescription_Model extends CI_Model
 				//lets get the record information from the Prescription db
 				$this->db->select('*');
 				$this->db->from('TBprescription');
+				$this->db->where('PREstatus = 0');
 				$this->db->join('TBdoctor', 'TBdoctor.DOCid = TBprescription.PREdoctorid', 'INNER');
 				$this->db->join('TBpill', 'TBpill.PILid = TBprescription.PREpillid', 'INNER');
 				$this->db->join('TBpatient', 'TBprescription.PREpatientid = TBpatient.PATid', 'INNER');
