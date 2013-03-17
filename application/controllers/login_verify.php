@@ -28,7 +28,7 @@ class Login_Verify extends CI_Controller {
    else
    {
      //Go to private area
-     redirect('patient_controller', 'refresh');
+     redirect('home_controller', 'refresh');
    }
 
  }

@@ -13,7 +13,7 @@ class Login extends CI_Controller {
 		if($this->session->userdata('logged_in'))
 		{
 			 //Go to private area
-     		redirect('patient_controller', 'refresh');
+     		redirect('home_controller', 'refresh');
 		}
 		else
 		{
