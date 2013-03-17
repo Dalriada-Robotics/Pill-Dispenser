@@ -33,7 +33,7 @@
 						<div id="body-span">
                             <div id="body-left">
                             	<div id="holder">
-                             		<a href="http://localhost/dispenser/logs_controller" title="Go to logs" class="img_logs"></a>
+                             		<a href="http://localhost/dispenser/log_controller" title="Go to logs" class="img_logs"></a>
                                 </div>
                             </div>
 							<div id="body-right">

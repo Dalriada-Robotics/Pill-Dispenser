@@ -35,7 +35,7 @@ $("#body_follow").height($("#body_progress").height());
           	<a href="http://localhost/dispenser/home_controller" class="logo"></a>
             <ul>
                 <!--<li><a href="release_controller" title="View Release Notes">Release Notes</a></li>-->
-                <li><a href="logs_controller" title="View dispenser records">Logs</a></li>
+                <li><a href="log_controller" title="View dispenser records">Logs</a></li>
                 <li><a href="dispenser_controller" title="View dispenser records">Dispensers</a></li>                
                 <li><a href="pill_controller" title="View Pill Details">Medication</a></li>
                 <li><a href="prescription_controller" title="View Prescriptions">Prescriptions</a></li>
