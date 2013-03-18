@@ -14,9 +14,9 @@
                                     <h3>Medications</h3>
                                         <p>
                                           <?php if(empty($pill_records)) { echo $pill_empty; } else { foreach ($pill_records->result() as $pill_record) { ?>   
-                      	                     <ul>
-                                                <li>Pill Name: <?php echo $pill_record->PILname; ?> | </li>
-                                                <li>Pill Description: <?php echo $pill_record->PILdescription; ?> </li>
+                      	                     <ul class="pill_root" id="<?php echo $pill_record->PILid; ?>">
+                                                <li>Pill Name: <span class="inline_pil_edit_pill" id="PILname"><?php echo $pill_record->PILname; ?></span> | </li>
+                                                <li>Pill Description: <span class="inline_pil_edit_description" id="PILdescription"><?php echo $pill_record->PILdescription; ?></span> </li>
                                               </ul> 
                                             <?php } } ?>
                                        </p>

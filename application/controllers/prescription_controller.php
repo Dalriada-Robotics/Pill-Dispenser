@@ -25,6 +25,9 @@ class Prescription_Controller extends CI_Controller {
 					//lets load the functions that we want to use from the above model
 					$page_data['pre_records'] = $this->Prescription_model->pre_records();
 					
+					//lets pass on a value if the prescriptions are empty
+					$page_data['pre_empty'] = "No active Prescriptions";
+					
 					//this will load the header template
 					$this->load->view('header_view', $header_data);
 					
@@ -77,15 +80,23 @@ class Prescription_Controller extends CI_Controller {
 			
 			//lets get the name of the field that has been edited
 			$field = $_POST['elementid'];
-			
-			//lets get the new value
+
 			//add it to the data array
 			$data['newvalue'] = $_POST['newvalue'];
 			
 			//lets create an array out of the submitted data
 			$data['values'] = array( $field => $data['newvalue'] );			
 			
-			//required to have the new value display on refresh
+			//lets check if we need to modify the start time for the demo
+			if($field == 'PREduration')
+			{
+				$pre_duration = $_POST['newvalue'];
+				$fields = 'PREstartdate';
+				$pre_timestamp = $this->Prescription_model->pre_timestamp($pre_duration);
+				$data['values']['PREstartdate'] = $pre_timestamp;
+			}
+			
+			//required to have the new value display
 			print_r($data['newvalue']);
 			
 			//pass the values to the model for the db insert

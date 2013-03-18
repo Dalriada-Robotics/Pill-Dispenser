@@ -1,5 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    RewriteCond $1 !^(index.php|css|js|img|png|thumbs|assets)
     RewriteBase /dispenser/
 
     #Removes access to the system folder by users.

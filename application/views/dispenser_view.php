@@ -13,11 +13,11 @@
                                     <h3>Dispensers</h3>
                                         <p>
                                            <?php if(empty($disp_records)) { echo $disp_empty; } else { foreach ($disp_records->result() as $disp_record) { ?> 
-                                            <ul>
-                                                <li>Dispenser Name: <?php echo $disp_record->DISname; ?> |</li>
-                                                <li>Dispenser IP: <?php echo $disp_record->DISip; ?> |</li>
-                                                <li>Username: <?php echo $disp_record->DISusername; ?> |</li>
-                                                <li>Password: <?php echo $disp_record->DISpassword; ?></li>
+                                            <ul class="disp_root" id="<?php echo $disp_record->DISid; ?>">
+                                                <li>Dispenser Name: <span class="inline_disp_edit" id="DISname"><?php echo $disp_record->DISname; ?></span> |</li>
+                                                <li>Dispenser IP: <span class="inline_disp_edit" id="DISip"><?php echo $disp_record->DISip; ?></span> |</li>
+                                                <li>Username: <span class="inline_disp_edit" id="DISusername"><?php echo $disp_record->DISusername; ?></span> |</li>
+                                                <li>Password: <span class="inline_disp_edit" id="DISpassword"><?php echo $disp_record->DISpassword; ?></span></li>
                                             </ul>
                                             <?php } } ?>
                                        </p>
