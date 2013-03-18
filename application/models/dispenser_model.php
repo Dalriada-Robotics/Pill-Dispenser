@@ -178,41 +178,54 @@ class Dispenser_Model extends CI_Model
 			$pre_actives = $this->db->get();
 
 			//lets load the ssh3 helper
-			$this->load->helper('SSH2.php');
-							
-			//lets get the ip of the dispenser and the authenicationd etails
-			$disp_ip = $pre_active->DISip;
-			$disp_username = $pre_active->DISusername;
-			$disp_password = $pre_active->DISpassword;
-								
-			//lets create the details for the SSH connection
-			$ssh = new NET_SSH2($disp_ip);
-			if (!$ssh->login($disp_username, $disp_password)) 
-			{
-				//exit if you cannot get logged on
-				exit('Login Failed');
-			}
+			$this->load->helper('SFTP_helper.php');
 
-			//lets work out which motor we are suppose to be connecting to
-			if ($pre_active->premotor = '1') 
+			//lets get to work on the running through the results from the table created
+			foreach ($pre_actives->result() as $pre_active)
 			{
-				//command we want to send to the dispenser
-			
-				echo '<br>';
-				echo 'motor 1 success';
-				echo '<br>';
+						
+				//lets get the ip of the dispenser and the authenicationd etails
+				$disp_ip = $pre_active->DISip;
+				$disp_username = $pre_active->DISusername;
+				$disp_password = $pre_active->DISpassword;
+									
+				//lets create the details for the SSH connection
+				$sftp = new NET_SFTP($disp_ip);
+				if (!$sftp->login($disp_username, $disp_password)) 
+				{
+					//exit if you cannot get logged on
+					exit('Login Failed');
+				}
+				
+				//open the file in question
+				$file = $sftp->get('test.txt');
+				
+				//read it from local memory
+				$handle = fopen('php://memory', 'r+');
+				fputs($handle, $file);
+				rewind($handle);
+				
+				//set a value for an array count
+				$c = 0;
+				//store the data line by line
+				while (($data = fgetcsv($handle, 0, " ")) !== FALSE)
+				{
+					$row[$c] = $data;
+        			$c++;
+				}
+				//insert the data in the db
+				foreach ($row as $key => $LINEvalue)
+				{
+					//add the log detail to the db
+					$data['LOGdispid'] = $pre_active->DISid;
+					$data['LOGline'] = $LINEvalue[0];
+					$this->db->insert('TBlogs', $data);
+					
+				}
+				//delete the text file now that we are finished with it
+				$sftp->delete('test.txt');
+				
 			}
-			elseif ($pre_active->premotor = '2')
-			{
-				//command we want to send to the dispenser
-				$ssh->exec('killall -v apt-get');
-			}
-			elseif ($pre_active->premotor = '3')
-			{
-				//command we want to send to the dispenser
-				$ssh->exec('killall -v apt-get');
-			}
-			echo 'completed';			
 
 		}
 	}

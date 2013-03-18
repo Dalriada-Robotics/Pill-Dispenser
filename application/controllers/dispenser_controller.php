@@ -64,5 +64,23 @@ class Dispenser_Controller extends CI_Controller {
 			//pass the values to the model for the db insert
 			$this->dispenser_model->disp_run();
 		}
+	//controller for the dispenser connect and run script when as a demo
+	function disp_run_demo()
+		{
+			//lets load the model relevant to the update
+			$this->load->model('dispenser_model');
+
+			//pass the values to the model for the db insert
+			$this->dispenser_model->disp_run();
+		}
+	//controller for the dispenser connect and run script
+	function disp_feedback()
+		{
+			//lets load the model relevant to the update
+			$this->load->model('dispenser_model');
+
+			//pass the values to the model for the db insert
+			$this->dispenser_model->disp_feedback();
+		}
 }
 	?>
