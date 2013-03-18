@@ -4,7 +4,7 @@
 					<!-- ******************************************************************************************************** -->                         
                     	<div id="body-sub-menu">
                             <div id="body-sub-menu-right">
-                                <a href="#" class='submenu_add_pill' title="Add an Prescription">Add Prescription</a>
+                                <a href="#" class='submenu_add_pill' title="Add an Prescription">Add Prescription</a> |
                            </div>                           
                         </div>  
                                             
@@ -20,6 +20,7 @@
                                                 <li>Duration: <?php echo $pre_record->PREduration; ?> (Days) | </li>
                                                 <li>Dosage: <?php echo $pre_record->PREdosage; ?> (Times Per Day) | </li>
                                                 <li>Subscribed by: <?php echo $pre_record->DOCfname; ?> . <?php echo $pre_record->DOCsname; ?></li>
+                                                <li><a href="prescription_controller/pre_delete?PREid=<?php echo $pre_record->PREid; ?>"><b>Delete</b></a></li>
                                             </ul>
                                           <?php } } ?>
                                        </p>

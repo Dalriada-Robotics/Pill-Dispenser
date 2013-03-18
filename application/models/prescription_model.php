@@ -52,9 +52,15 @@ class Prescription_Model extends CI_Model
 		{	
 			//run the db query
 			$this->db->where($data['key'], $data['id']); 
-			$this->db->update($data['table'], $data['values']);
-
-
-						
+			$this->db->update($data['table'], $data['values']);					
+		}
+		//delete record
+		function pre_delete($PREid)
+		{
+			//run the db query
+			echo $PREid;
+			$data['values'] = array('PREstatus' => '1');
+			$this->db->where('PREid', $PREid);
+			$this->db->update('TBprescription', $data['values']);
 		}
 	}
