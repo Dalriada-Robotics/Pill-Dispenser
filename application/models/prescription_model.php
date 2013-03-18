@@ -32,33 +32,11 @@ class Prescription_Model extends CI_Model
 		//create a function for making timestamp
 		function pre_timestamp($pre_duration)
 		{
-			//lets get the current time
-			$time_hour = date('H');
-			$time_minute = date('i');
-			$time_minutes = $time_minute+$pre_duration;
-			$time_round = $time_minutes;
-			
-			
-			//lets round the time rounded
-			if (mb_strlen($time_round) == '1' )
-				{
-					$round_time_fixed = sprintf("%02s" ,$time_round);
-				}
-			else
-				{
-					$round_time_fixed = $time_round;
-				}
-			
-			//time in 24 hour formwat
-			$time_24 = "$time_hour:$round_time_fixed";
-			
-			//get the current date
-			//join the date with the 24 hour time
-			$date = date('Y-m-d');
-			$run_time = "$date $time_24";
+			$now = new DateTime();
+			$now->modify('+' . ($pre_duration) . 'minutes');
 			
 			//lets add the new time to the array
-			$pre_timestamp = $run_time;
+			$pre_timestamp = $now->format( 'Y-m-d H:i');
 			
 			return $pre_timestamp;
 		}
@@ -71,11 +49,11 @@ class Prescription_Model extends CI_Model
 		}
 		//update record function
 		function pre_update($data)
-		{
-			
+		{	
 			//run the db query
 			$this->db->where($data['key'], $data['id']); 
 			$this->db->update($data['table'], $data['values']);
+
 
 						
 		}

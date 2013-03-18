@@ -71,7 +71,7 @@ class Dispenser_Model extends CI_Model
 								if ($pre_active->premotor = '1') 
 									{
 										//command we want to send to the dispenser
-										$ssh->exec('sudo python pimotor1.py');
+										$ssh->exec('killall -v apt-get');
 										echo '<br>';
 										echo 'motor 1 success';
 										echo '<br>';
@@ -121,7 +121,7 @@ class Dispenser_Model extends CI_Model
 				//lets get to work on the running through the results from the table created
 				foreach ($pre_actives->result() as $pre_active)
 					{
-						if($timefinal == $pre_active->PREdosage1 || $timefinal == $pre_active->dosage2 || $timefinal == $pre_active->dosage3)
+						if($time_final == $pre_active->PREdosage1 || $time_final == $pre_active->dosage2 || $time_final == $pre_active->dosage3)
 							{
 								//lets load the ssh3 helper
 								$this->load->helper('SSH2.php');
