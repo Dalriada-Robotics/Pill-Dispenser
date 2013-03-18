@@ -226,6 +226,60 @@ class Dispenser_Model extends CI_Model
 				$sftp->delete('test.txt');
 				
 			}
-
 		}
+	function disp_email()
+		{
+				//lets get the record information from the Prescription db
+				$this->db->select('*');
+				$this->db->where('LOGstatus = 0');
+				$this->db->from('TBlogs');
+				$this->db->join('TBprescription', 'TBprescription.PREdispenserid = TBlogs.LOGdispid', 'INNER');
+				$this->db->join('TBpatient', 'TBprescription.PREpatientid = TBpatient.PATid', 'INNER');
+				$this->db->join('TBdoctor', 'TBprescription.PREdoctorid = TBdoctor.DOCid', 'INNER');
+				$this->db->group_by(array('LOGdispid'));
+				$query = $this->db->get();
+					
+					//var_dump($query->result());	
+				//work out how many rows are return if 0 return no array
+				if ($query->num_rows() == '0')
+					{
+						//do nothing
+					}
+				else
+					{	
+							$now = new DateTime();
+							foreach ($query->result() as $email)
+							{
+								//lets check to see if the timestamp is current and if so send a email to the doctor
+								if($email->PREstartdate == $now->format('Y-m-d H:i'))
+								{
+									//load the email library
+									$this->load->library('email');
+									$this->email->from('dispenser@dispenser.com', 'Dispenser Admin');
+									$this->email->to($email->DOCemail);
+									$this->email->subject('Feedback report');
+									$this->email->message('test');
+									$this->email->send();
+									
+									echo $this->email->print_debugger();
+									
+									$config['protocol'] = 'sendmail';
+									$config['mailpath'] = '/usr/sbin/sendmail';
+									$config['charset'] = 'iso-8859-1';
+									$config['wordwrap'] = TRUE;
+									
+									$this->email->initialize($config);
+								}
+								else
+								{
+									echo 'did not work';
+								}
+							}
+							
+
+
+					}		
+		}
+
+
 	}

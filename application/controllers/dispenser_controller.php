@@ -81,6 +81,12 @@ class Dispenser_Controller extends CI_Controller {
 
 			//pass the values to the model for the db insert
 			$this->dispenser_model->disp_feedback();
+			
+			//lets check to see if we need to email the doctr
+			$this->dispenser_model->disp_email();
+			
+			//If no session, redirect to login page
+			//redirect('logs_controller', 'refresh');
 		}
 }
 	?>
