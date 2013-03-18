@@ -44,6 +44,7 @@ class Patient_Model extends CI_Model
 					{
 						//lets get the record information from the prescription db
 						$this->db->where("PREpatientid = '" . $PATid . "'");
+						$this->db->where("PREstatus = 0");
 						$this->db->from('TBprescription');
 						$this->db->join('TBdoctor', 'TBdoctor.DOCid = TBprescription.PREdoctorid', 'INNER');
 						$this->db->join('TBpill', 'TBpill.PILid = TBprescription.PREpillid', 'INNER');

@@ -108,7 +108,15 @@ class Prescription_Controller extends CI_Controller {
 	//delete Prescription (deactivates)
 	function pre_delete()
 		{
-		
+			
+			//lets load the model relevant to this model
+			$this->load->model('prescription_model');
+			$PREid = $_GET['PREid'];
+			//pass the value to the model for the db update
+			$this->prescription_model->pre_delete($PREid);
+			
+			//redirect to the default controller
+			redirect('prescription_controller', 'refresh');		
 		}
 }
 	?>
