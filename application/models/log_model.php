@@ -38,7 +38,7 @@ class Log_Model extends CI_Model
 								}
 							else
 								{
-									$releaseed = 'Failure';
+									$released = 'Failure';
 								}
 							//lets cjeclt tje value of pickups
 							$pickup = substr($old_logline, -15, 1);
