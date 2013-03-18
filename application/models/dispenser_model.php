@@ -68,7 +68,7 @@ class Dispenser_Model extends CI_Model
 									}
 
 								//lets work out which motor we are suppose to be connecting to
-								if ($pre_active->premotor = '1') 
+								if ($pre_active->premotor == '1') 
 									{
 										//command we want to send to the dispenser
 										$ssh->exec('sudo python motor1.py');
@@ -76,12 +76,12 @@ class Dispenser_Model extends CI_Model
 										echo 'motor 1 success';
 										echo '<br>';
 									}
-								elseif ($pre_active->premotor = '2')
+								elseif ($pre_active->premotor == '2')
 									{
 										//command we want to send to the dispenser
 										$ssh->exec('sudo python motor2.py');
 									}
-								elseif ($pre_active->premotor = '3')
+								elseif ($pre_active->premotor == '3')
 									{
 										//command we want to send to the dispenser
 										$ssh->exec('sudo python motor2.py');
@@ -140,7 +140,7 @@ class Dispenser_Model extends CI_Model
 									}
 
 								//lets work out which motor we are suppose to be connecting to
-								if ($pre_active->premotor = '1') 
+								if ($pre_active->premotor == '1') 
 									{
 										//command we want to send to the dispenser
 										$ssh->exec('sudo python pimotor1.py');
@@ -148,12 +148,12 @@ class Dispenser_Model extends CI_Model
 										echo 'motor 1 success';
 										echo '<br>';
 									}
-								elseif ($pre_active->premotor = '2')
+								elseif ($pre_active->premotor == '2')
 									{
 										//command we want to send to the dispenser
 										$ssh->exec('sudo python pimotor2.py');
 									}
-								elseif ($pre_active->premotor = '3')
+								elseif ($pre_active->premotor == '3')
 									{
 										//command we want to send to the dispenser
 										$ssh->exec('sudo python pimotor3.py');
