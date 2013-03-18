@@ -15,7 +15,7 @@
                                         <p>
                                         	<?php if(empty($log_records)) { echo $log_empty; } else { foreach ($log_records as $log_record) { ?> 
                                             <ul>
-                                                <li>Patient Name: <?php echo $log_record['PATname']; ?> | Pill Released: <?php echo $log_record['release'] ?> | Pickup: <?php echo $log_record['pickup']; ?> | Date: <?php echo $log_record['date']; ?> | Time: <?php echo $log_record['time']; ?> </li>
+                                                <li <?php if($log_record['release'] == 'Failure' || $log_record['pickup'] == 'Failure') { echo 'style="color:red;"'; } ?>>Patient Name: <?php echo $log_record['PATname']; ?> | Pill Released: <?php echo $log_record['release'] ?> | Pickup: <?php echo $log_record['pickup']; ?> | Date: <?php echo $log_record['date']; ?> | Time: <?php echo $log_record['time']; ?> </li>
                                             </ul>
                                           <?php } } ?>
                                        </p>
